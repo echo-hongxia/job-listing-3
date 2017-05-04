@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JobListing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
+    <title>自由工作网 - 尽情释放你的潜能！</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="shortcut icon" href="/images/favicon.ico">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="content">
-      <main>
-          <div class="container-fluid">
-            <div class="row">
-              <%= render "common/navbar" %>
-              <%= render "common/flashes" %>
-              <%= yield %>
-            </div>
-          </div>
-        </div>
-      </main>
-  <%= render "common/footer" %>
-
+    <div class="wrapper">
+      <div class="row">
+        <%= render "common/navbar" %>
+      </div>
+      <%= render "common/flashes" %>
+      <%= yield %>
+    </div>
+    <%= render "common/footer"%>
   </body>
 </html>

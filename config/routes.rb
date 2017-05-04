@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root 'welcome#index'
+  # root 'jobs#index'
+
+  # devise_for :users
+  devise_for :users, :controllers => { :registrations => "users/registrations" }
 
   namespace :admin do
     resources :jobs do
@@ -7,11 +13,19 @@ Rails.application.routes.draw do
         post :publish
         post :hide
       end
-
       resources :resumes
     end
+
+    resources :resumes do
+      member do
+        post :publish
+        post :hide
+      end
+    end
+
   end
 
+  # resources :jobs
   resources :jobs do
     resources :resumes
     collection do
@@ -19,5 +33,10 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'welcome#index'
+  resources :resumes do
+    collection do
+      get :search
+    end
+  end
+
 end

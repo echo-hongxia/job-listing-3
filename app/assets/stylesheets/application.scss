@@ -1,322 +1,431 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require font-awesome
- *= require_tree .
- *= require_self
- */
-
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "font-awesome";
- @import url(http://fonts.googleapis.com/css?family=Roboto);
-
-
- //---------Navbar---------
-
- .navbar-default {
-     background-color: #212121;
-     border-color: #212121;
-     border-radius: 0;
- }
-
- .navbar-default .navbar-brand {
-     color: #EF6C00;
-     padding: 10px 15px;
-     line-height: 30px;
- }
-
- .navbar-default .navbar-brand:hover,
- .navbar-default .navbar-brand:focus {
-     color: #FF6F00;
-     background-color: transparent;
- }
-
- .navbar-default .navbar-nav > li > a {
-     color: #EF6C00;
- }
-
- .navbar-default .navbar-nav > li > a:hover,
- .navbar-default .navbar-nav > li > a:focus {
-     color: #FF6F00;
-     background-color: transparent;
- }
-
- .navbar-default .navbar-nav > .active > a,
- .navbar-default .navbar-nav > .active > a:hover,
- .navbar-default .navbar-nav > .active > a:focus {
-     color: #FF6F00;
-     background-color: #FFE0B2;
- }
-
- .navbar-default .navbar-nav > .open > a,
- .navbar-default .navbar-nav > .open > a:focus,
- .navbar-default .navbar-nav > .open > a:hover {
-     background-color: #FFE0B2;
-     color: #212121;
- }
-
- //-------input-group--------
- .input-group .form-control {
-    position: relative;
-    z-index: 2;
-    float: right;
-    width: 10%;
-    margin-bottom: 0;
-}
-
-//----------search_criteria--------
-.jobs-show0 {
-  border-bottom: 1px dotted #CCC;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-bottom: 15px;
-  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
-}
-
-.jobs-show {
-  border-bottom: 1px dotted #CCC;
-  padding: 15px;
-  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
-}
-
-
-
-/* Search.html.erb
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require font-awesome
+*= require_self
 */
 
-.search-info-title {
-  font-family: PingFangSC-Medium, Arial, Helvetica, sans-serif;
-  color: #0d6ded;
-  font-size: 10px;
-  text-align: center;
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
+
+$nav-color-gray: #9E9E9E;
+$nav-color-white: #FAFAFA;
+$nav-color-black: #212121;
+$navbar-background-color: #3A3636;//
+$footer-background-color: #3A3636;//
+$nav-a-hover: #f40202;
+
+//****************************************************************//
+
+html {
+  min-height: 100%;//拉高
+  position: relative;
+  overflow-x: hidden; overflow-y: auto;
+  // font-family: "Microsoft Yahei", 微软雅黑;
+  font-family: "YouYuan", 幼圆;
 }
 
- //---------Box---------
+body {
+  /* Margin bottom by footer height */
+  padding-top: 50px;
+  margin-bottom: 150px;
+}
 
- .box {
-    //background-image: url("http://ww2.sinaimg.cn/large/006tNc79gy1fez9nqdddlj31900u0tz1.jpg");
-     background-image: url("http://ww3.sinaimg.cn/large/006tNc79gy1ff85px3yc2j31ao0x47nc.jpg");
-     background-repeat: no-repeat;
-     background-size: cover;
-     margin-bottom: 50px;
-     margin-top: -20px;
+.alert {
+  margin-bottom: 0;//底部 margin 不撑开距离
+  margin-top: 4em;
+  border-radius: 0;
+}
+
+.wrapper {
+  margin-bottom: -20px; /* 等于footer的高度 */
+}
+
+//****************************************************************//
+
+.navbar {
+  // font-family: Montserrat, sans-serif;
+  // font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
+  margin-bottom: 0;
+  //background-color: transparent;
+  background-color: $navbar-background-color;
+  border: 0;
+  font-size: 11px !important;
+  letter-spacing: 4px;
+  opacity: 0.9;
+}
+.navbar-brand > img {
+  display: inline-block; //图片和链接文字显示在同一行
+  margin-right: 10px; //图片和链接文字拉开一点距离
+  width: 24px; //定制图片宽度，默认32
+  height: 24px; //定制图片高度，默认32
+}
+.navbar li a, .navbar .navbar-brand {
+  color: #d5d5d5 !important;
+}
+.navbar-nav li a:hover {
+  color: #fff !important;
+}
+.navbar-nav li.active a {
+  color: #fff !important;
+  background-color: #29292c !important;
+}
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+.open .dropdown-toggle {
+  color: #fff;
+  background-color: #555 !important;
+}
+.dropdown-menu li a {
+  color: #000 !important;
+}
+.dropdown-menu li a:hover {
+  background-color: #03A9F4 !important; //鼠标停留在下拉选项的颜色
+}
+
+//****************************************************************//
+
+.banner{
+  background-image: url('http://ww2.sinaimg.cn/large/006tNbRwgy1ff01s1l0f7j312w0nw43j.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: top center;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 100px;
+  padding-bottom: 100px;//内部的底部边距，这样按钮不会很靠近底部了
+  margin:0 -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
+  border-radius: 0;//圆角为0
+}
+
+.banner_bottom{
+  background-image: url('http://ww1.sinaimg.cn/large/006tNbRwgy1ff3p1e4xmlj31400ic79i.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: center center;
+  width: 100%;
+  height: 20%;
+  // height: 150px;
+  overflow: hidden;
+  padding-top: 4.4em;
+  margin-top: -15px;
+  border-radius: 0;//圆角为0
+}
+
+.banner_text h1{
+  // font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: white;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  font-size:4.2em;
+  font-weight: 200;
+  line-height: 8rem;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+
+.banner_text h2{
+  // font-family: 'Open Sans', sans-serif;
+  font-size:1.7em;
+  font-weight: 180;
+  line-height: 6rem;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  margin-bottom: 3.5em;
+}
+
+.button {
+  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  display: block;
+  margin: 20px auto;
+  max-width: 8em;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+  color: rgba(250, 250, 250, 0.6);
+  box-shadow: rgba(250, 250, 250, 0.6) 0 0px 0px 2px inset;
+  // font-family: 'Open Sans', sans-serif;
+  font-size: 2rem;
+}
+
+.button:hover,
+.button:focus {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: rgba(242, 242, 242, 0.5) 0 0px 0px 4em inset;
+  text-decoration: none;
+}
 
 
+/*Company Section style
+==================*/
+.title {
+  text-align: center;
+  font-size:3.5rem;
+  font-weight: 700;
+  line-height: 6rem;
+  letter-spacing: 0.1rem;
+  color: #333333;
+  letter-spacing: 0.1rem;
+}
 
-     .box-inner {
-         background-color: rgba(0, 0, 0, 0);
-         padding-bottom: 5px;
-         margin-top: 150px;
-         margin-bottom: 150px;
-     }
+#features {
+  margin-top:17px;
+}
+.feature, .feature i, .feature h3, .feature .title_border {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.feature {
+  background:#FFFFFF;
+  text-align:center;
+  padding:2em;
+}
 
-     .title {
-         font-family: sans-serif;
-         text-align: center;
-         margin-bottom: 80px;
-         color: #FF7043;
-     }
+.feature i{
+  font-size:3em;
+  padding:0.5em;
+  color:#FFFFFF;
+  background:#808080;
+  border-radius:50%;
+  border: solid 3px #808080;
+}
 
-     .slogan {
-         color: #FB8C00;
-         margin-top: 10px;
-         margin-bottom: 50px;
-         text-align: center;
-         font-size: 25px;
-         top: 12px;
-     }
+.feature h4 {
+  color: #fff;
+}
 
-     .lead {
-         margin-bottom: 60px;
-         text-align: center;
-         color: white;
-     }
- }
+.feature:hover h4 {
+  color:#808080;
+}
+.feature:hover {
+  background:#fff;
+  -webkit-transform: translate(0,1em);
+  -moz-transform: translate(0,1em);
+  -o-transform: translate(0,1em);
+  -ms-transform: translate(0,1em);
+  transform: translate(0,1em);
+}
+.feature:hover i{
+  color:#565656;
+  border-color:#808080;
+  background:#fff;
+}
 
-  .container-fluid .jumbotron{
-    padding-bottom: 110px;//内部的底部边距，这样按钮不会很靠近底部了
-    margin: 0 -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
-    border-radius: 0;//圆角为0
+/*
+service section style
+========================*/
+
+.service_items {
+  margin: 80px 0;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+}
+
+.service_left_text h4,
+.service_right_text h4 {
+  font-weight: 400;
+  font-size:1.3em;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: -80px;
+}
+
+.service_left_text p,
+.service_right_text p {
+  font-size:1em;
+  font-weight: 400;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: -80px;
+}
+
+
+/*
+Browse Your Jobs Section
+========================*/
+.category {
+  padding: 0 1.4286em 0;
+  margin: 3.5714em auto 7em;
+  text-align: center;
+  height: auto;
+  width: auto;
+  position: relative;
+  li {
+    display: inline-block;
+    width: 15.7143em;
+    height: 10.7143em;
+    margin-left: 0.7143em;
+    margin-right: 0.7143em;
+    position: relative;
+    margin-bottom: 3.5714em;
+    overflow: hidden;
+    .category-img-wrap {
+      width: 15.7143em;
+      height: 10.7143em;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      &:hover {
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -webkit-transition: all .8s;
+        transition: all .5s;
+      }
+    }
+    .box-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,.7);
+      font-size: 1.142em;
+      padding: 0.45em 1.71em;
+      color: #fff;
+      transition: opacity .4s ease-in-out;
+    }
+  }
+}
+
+/*
+Browse Your Jobs Section
+========================*/
+.slogan {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 3em;
+  // font-family: 'Dosis', sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 2.6em;
+  line-height: 2em;
+}
+
+
+/* === Common === */
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+
+//****************************************************************//
+.user_pop{
+  height: 750px;
+  // background: image_url("user_background.jpg") no-repeat scroll top center/ cover;
+}
+
+.user_pop_content{
+  background: #fff;
+  margin-top: 120px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 1px 3px 5px #333;
+  border: 1px solid #666;
+  border-radius: 10px;
+
+  opacity:0.95;
+  filter:alpha(opacity=95);
+
+  h2{
+    text-align: center;
   }
 
- //---------Content---------
+  .psw{
+    float: right;
+    margin-top: -33px;
+    position: relative;
+  }
 
-.content-section-a {
-    padding: 50px 0;
-    background-color: #f8f8f8;
+  .account{
+    text-align: center;
+  }
+
+  .form-inputs{
+    margin-top: 25px;
+  }
+
+  .form-actions{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+    .button{
+      color: #fff;
+      background-color: #4A6BB5;
+      border-color: #4A6BB5;
+      font-size: 16px;
+      letter-spacing: 1px;
+      width: 100%;
+    }
+    .button:hover{
+      background-color: #4a94b5;
+      border-color: #4A99B5;
+      color: #fff;
+    }
+  }
 }
 
-.content-section-b {
-    padding: 50px 0;
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
+//****************************************************************//
+
+.footer {
+  position: absolute;
+  padding: 0;
+  // margin: 0;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background-color: $footer-background-color;
 }
 
-.section-heading-spacer {
-    float: left;
-    width: 200px;
-    border-top: 3px solid #e7e7e7;
+.footer-text {
+  color: #9d9d9d;
+  margin-top: 50px;
 }
 
-.section-heading {
-    margin-bottom: 30px;
+.footer_icon a {
+  font-size: 25px;
+  margin-top: 68px;
+  color:#9d9d9d;
+  text-decoration:none;
 }
 
-.lead {
-    font-size: 18px;
-    font-weight: 400;
+.footer_icon a:hover {
+  font-size: 25px;
+  margin-top: 68px;
+  color:#fff;
+  text-decoration:none;
 }
 
-//---------Footer---------
-
- footer {
-     color: white;
- }
-
- footer .footer-below {
-     padding: 25px 0;
-     background-color: #233140;
- }
-
- //-------footer-2-----
- html { height: 100%;}
-  body { min-height: 100%; display: flex; flex-direction: column;}
-  .content { flex: 1;}
-
- //----------part4---------
-  .btn-danger {
-     color: #fff;//字体颜色
-
-     background-color: #EF6C00;//背景颜色
-
-     border-color: #EF6C00;//边框颜色
-
- }
-
- .btn-danger:hover {
-     background-color: #E65100;//鼠标放置在btn上的背景颜色
-
-     border-color: #E65100;//鼠标放置在btn上的边框颜色
-
- }
-
- //---------part----------
-
- .btn-lg, .btn-group-lg > .btn {
-     padding: 8px 16px;//通过padding来决定btn的大小
-     font-size: 16px;//btn文字大小
-     letter-spacing: 3px;//调整文字间距
-     border-radius: 3px;//btn圆角
-     width: 200px;//这里用指定宽度把btn拉得更长
- }
-
- /****** LOGIN MODAL ******/
- .loginmodal-container {
-   padding: 30px;
-   max-width: 350px;
-   width: 100% !important;
-   background-color: #F7F7F7;
-   margin: 0 auto;
-   border-radius: 2px;
-   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-   overflow: hidden;
-   font-family: roboto;
- }
-
- .loginmodal-container h1 {
-   text-align: center;
-   font-size: 1.8em;
-   font-family: roboto;
- }
-
- .loginmodal-container input[type=submit] {
-   width: 100%;
-   display: block;
-   margin-bottom: 10px;
-   position: relative;
- }
-
- .loginmodal-container input[type=text], input[type=password] {
-   height: 44px;
-   font-size: 16px;
-   width: 100%;
-   margin-bottom: 10px;
-   -webkit-appearance: none;
-   background: #fff;
-   border: 1px solid #d9d9d9;
-   border-top: 1px solid #c0c0c0;
-   /* border-radius: 2px; */
-   padding: 0 8px;
-   box-sizing: border-box;
-   -moz-box-sizing: border-box;
- }
-
- .loginmodal-container input[type=text]:hover, input[type=password]:hover {
-   border: 1px solid #b9b9b9;
-   border-top: 1px solid #a0a0a0;
-   -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-   -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-   box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
- }
-
- .loginmodal {
-   text-align: center;
-   font-size: 14px;
-   font-family: 'Arial', sans-serif;
-   font-weight: 700;
-   height: 36px;
-   padding: 0 8px;
- /* border-radius: 3px; */
- /* -webkit-user-select: none;
-   user-select: none; */
- }
-
- .loginmodal-submit {
-   /* border: 1px solid #3079ed; */
-   border: 0px;
-   color: #fff;
-   text-shadow: 0 1px rgba(0,0,0,0.1);
-   background-color: #4d90fe;
-   padding: 17px 0px;
-   font-family: roboto;
-   font-size: 14px;
-   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
- }
-
- .loginmodal-submit:hover {
-   /* border: 1px solid #2f5bb7; */
-   border: 0px;
-   text-shadow: 0 1px rgba(0,0,0,0.3);
-   background-color: #357ae8;
-   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
- }
-
- .loginmodal-container a {
-   text-decoration: none;
-   color: #666;
-   font-weight: 400;
-   text-align: center;
-   display: inline-block;
-   opacity: 0.6;
-   transition: opacity ease 0.5s;
- }
-
- .login-help{
-   font-size: 12px;
- }
-
- //--------common-------
- .col-centered {
-   float: none;
-   margin: 0 auto;
- }
+.footer_icon li {
+  display:inline;
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+}
